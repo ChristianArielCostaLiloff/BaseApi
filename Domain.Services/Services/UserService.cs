@@ -18,7 +18,7 @@ namespace Domain.Services.Services
         }
         #endregion
 
-        #region Services
+        #region Methods
         public List<UserDto> GetUsers()
         {
             IEnumerable<UserEntity> userEntities = _unitOfWork.UserRepository.GetAll();
