@@ -21,4 +21,8 @@
     <ProjectReference Include="..\IoC.BaseApi\IoC.BaseApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Filters\" />
+  </ItemGroup>
+
 </Project>

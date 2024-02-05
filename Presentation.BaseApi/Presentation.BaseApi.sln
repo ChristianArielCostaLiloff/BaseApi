@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infraestructure.Entity", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.BaseApi", "..\Common.BaseApi\Common.BaseApi.csproj", "{FBD84CCA-0D90-404E-8AF0-AAC6A168B40E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Domain.Services", "..\Test.Domain.Services\Test.Domain.Services.csproj", "{7A7529F5-2241-4A76-A7E3-29FAA5CD3B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.BaseApi", "..\Test.Domain.Services\Test.BaseApi.csproj", "{7A7529F5-2241-4A76-A7E3-29FAA5CD3B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC.BaseApi", "..\IoC.BaseApi\IoC.BaseApi.csproj", "{95113B88-1FE4-483B-847C-31DD913C340D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoC.BaseApi", "..\IoC.BaseApi\IoC.BaseApi.csproj", "{95113B88-1FE4-483B-847C-31DD913C340D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

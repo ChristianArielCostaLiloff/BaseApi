@@ -16,7 +16,7 @@ namespace Infraestructure.Core.Repository.Interfaces
         IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties);
 
         /// Retorna la primera entidad encontrada bajo una condición especificada o null sino encontrara registros
-        TEntity FirstOrDefault(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties);
+        TEntity? FirstOrDefault(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties);
         /// Registra una entidad
         void Insert(TEntity entity);
 

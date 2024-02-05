@@ -27,32 +27,14 @@ namespace Infraestructure.Core.UnitOfWork
         #endregion
 
         #region Properties
-        private IRepository<RoleEntity> _roleRepository;
-        private IRepository<UserEntity> _userRepository;
+        private IRepository<RoleEntity>? _roleRepository;
+        private IRepository<UserEntity>? _userRepository;
         #endregion
 
         #region Members
-        public IRepository<RoleEntity> RoleRepository
-        {
-            get
-            {
-                if (_roleRepository == null)
-                    _roleRepository = new Repository<RoleEntity>(_context);
-
-                return _roleRepository;
-            }
-        }
-
-        public IRepository<UserEntity> UserRepository
-        {
-            get
-            {
-                if (_userRepository == null)
-                    _userRepository = new Repository<UserEntity>(_context);
-
-                return _userRepository;
-            }
-        }
+        // Lazy Loading
+        public IRepository<RoleEntity> RoleRepository => _roleRepository ??= new Repository<RoleEntity>(_context);
+        public IRepository<UserEntity> UserRepository => _userRepository ??= new Repository<UserEntity>(_context);
         #endregion
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()
@@ -63,8 +45,14 @@ namespace Infraestructure.Core.UnitOfWork
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed && disposing) _context.Dispose();
-            disposed = true;
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+                disposed = true;
+            }
         }
 
         public void Dispose()

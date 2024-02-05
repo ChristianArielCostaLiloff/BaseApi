@@ -41,7 +41,7 @@ namespace Infraestructure.Core.Repository
             return query.Where(where);
         }
 
-        public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
+        public TEntity? FirstOrDefault(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = AsQueryable().AsNoTracking();
             query = PerformInclusions(includeProperties, query);
@@ -94,8 +94,9 @@ namespace Infraestructure.Core.Repository
 
         public void Delete(object id)
         {
-            TEntity entityToDelete = _entities.Find(id);
-            _entities.Remove(entityToDelete);
+            TEntity? entityToDelete = _entities.Find(id);
+            if (entityToDelete != null)
+                _entities.Remove(entityToDelete);
         }
 
         #endregion IRepository<TEntity> Members

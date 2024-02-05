@@ -7,7 +7,7 @@ using Infraestructure.Core.UnitOfWork;
 using Infraestructure.Core.UnitOfWork.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Presentation.BaseApi.Configurator
+namespace IoC.BaseApi.Configurator
 {
     public class DependencyInjectionConfigurator
     {

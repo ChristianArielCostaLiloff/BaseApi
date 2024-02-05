@@ -7,10 +7,12 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
 BaseApi/
 ├── Presentation.BaseApi/
 │   ├── Controllers/
-│   ├── Configurator/
-│   │   ├── DependencyInjectionConfigurator.cs
 │   ├── Dtos/
 │   │   ├── UserDto.cs
+│   ├── Filters/
+├── IoC.BaseApi/
+│   ├── Configurator/
+│   │   ├── DependencyInjectionConfigurator.cs
 ├── Domain.Services/
 │   ├── Interfaces/
 │   │   ├── IUserService.cs
@@ -59,6 +61,9 @@ Follow these steps to set up and run the project:
 - [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) v7.0.15: Entity Framework Core SQL Server database provider.
 - [Swashbuckle.AspNetCore](https://www.nuget.org/packages/Swashbuckle.AspNetCore/) v6.5.0: Library to generate Swagger documents for your API.
 
+### IoC.BaseApi
+- No external dependencies.
+- 
 ### Domain.Services
 - No external dependencies.
 

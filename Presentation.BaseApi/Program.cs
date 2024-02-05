@@ -1,5 +1,6 @@
 using Infraestructure.Core.Database;
 using Microsoft.EntityFrameworkCore;
+using IoC.BaseApi.Configurator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddDbContext<BaseApiDbContext>(op =>
 #endregion
 
 #region Injection
-IoC.BaseApi.Configurator.DependencyInjectionConfigurator.DependencyInjectionConfiguration(builder.Services);
+DependencyInjectionConfigurator.DependencyInjectionConfiguration(builder.Services);
 #endregion
 
 // Add services to the container.
@@ -25,10 +26,13 @@ var app = builder.Build();
 
 #region SeedDb
 IServiceScopeFactory? scopeFactory = app.Services.GetService<IServiceScopeFactory>();
-using (IServiceScope scope = scopeFactory.CreateScope())
+if (scopeFactory != null)
 {
-    var seeder = scope.ServiceProvider.GetService<SeedDb>();
-    seeder!.InitializeDataAsync().Wait();
+    using (IServiceScope scope = scopeFactory.CreateScope())
+    {
+        var seeder = scope.ServiceProvider.GetService<SeedDb>();
+        seeder!.InitializeDataAsync().Wait();
+    }
 }
 #endregion
 
