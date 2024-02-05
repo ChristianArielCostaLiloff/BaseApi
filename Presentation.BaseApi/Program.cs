@@ -12,7 +12,7 @@ builder.Services.AddDbContext<BaseApiDbContext>(op =>
 #endregion
 
 #region Injection
-DependencyInjectionConfigurator.DependencyInjectionConfiuration(builder.Services);
+DependencyInjectionConfigurator.DependencyInjectionConfiguration(builder.Services);
 #endregion
 
 // Add services to the container.

@@ -10,7 +10,7 @@ namespace Presentation.BaseApi.Configurator
 {
     public class DependencyInjectionConfigurator
     {
-        public static void DependencyInjectionConfiuration(IServiceCollection services)
+        public static void DependencyInjectionConfiguration(IServiceCollection services)
         {
             // Infraestructure
             services.AddScoped<SeedDb>();
