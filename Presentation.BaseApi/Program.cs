@@ -1,6 +1,5 @@
 using Infraestructure.Core.Database;
 using Microsoft.EntityFrameworkCore;
-using Presentation.BaseApi.Configurator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +11,7 @@ builder.Services.AddDbContext<BaseApiDbContext>(op =>
 #endregion
 
 #region Injection
-DependencyInjectionConfigurator.DependencyInjectionConfiguration(builder.Services);
+IoC.BaseApi.Configurator.DependencyInjectionConfigurator.DependencyInjectionConfiguration(builder.Services);
 #endregion
 
 // Add services to the container.

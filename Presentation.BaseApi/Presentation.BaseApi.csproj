@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Common.BaseApi\Common.BaseApi.csproj" />
     <ProjectReference Include="..\Domain.Services\Domain.Services.csproj" />
+    <ProjectReference Include="..\IoC.BaseApi\IoC.BaseApi.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@ using Infraestructure.Core.Repository;
 using Infraestructure.Core.Repository.Interfaces;
 using Infraestructure.Core.UnitOfWork;
 using Infraestructure.Core.UnitOfWork.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Presentation.BaseApi.Configurator
 {
