@@ -54,19 +54,13 @@ Follow these steps to set up and run the project:
 
 ## Dependencies
 
-The main dependencies of the project are:
-
-- [List of dependencies and their purpose.]
-
-## Dependencies
-
 ### Presentation.BaseApi
 - [Microsoft.EntityFrameworkCore.Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/) v7.0.15: Provides design-time support for Entity Framework Core.
 - [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) v7.0.15: Entity Framework Core SQL Server database provider.
 - [Swashbuckle.AspNetCore](https://www.nuget.org/packages/Swashbuckle.AspNetCore/) v6.5.0: Library to generate Swagger documents for your API.
 
 ### Domain.Services
-- No packages were found for this framework.
+- No external dependencies.
 
 ### Infraestructure.Core
 - [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/) v7.0.15: Entity Framework Core.
@@ -83,7 +77,7 @@ The main dependencies of the project are:
 - [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/) v7.0.15: Additional tools for Entity Framework Core.
 
 ### Common.BaseApi
-- No packages were found for this framework.
+- No external dependencies.
 
 ### Test.Domain.Services
 - [coverlet.collector](https://www.nuget.org/packages/coverlet.collector/) v3.2.0: Code coverage collector for xUnit.
