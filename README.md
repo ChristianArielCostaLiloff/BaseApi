@@ -73,7 +73,7 @@ Follow these steps to set up and run the project:
 
 ### IoC.BaseApi
 - No external dependencies.
-- 
+
 ### Domain.Services
 - No external dependencies.
 

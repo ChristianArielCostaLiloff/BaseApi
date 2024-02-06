@@ -1,4 +1,5 @@
-﻿using Domain.Services.Dtos;
+﻿using Common.BaseApi.Resources;
+using Domain.Services.Dtos.User;
 using Domain.Services.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.BaseApi.Dtos;
@@ -38,6 +39,7 @@ namespace Presentation.BaseApi.Controllers
 
             return Ok(response);
         }
+
         [HttpGet]
         [Route("GetById/{id}")]
         public IActionResult GetById(int id)
@@ -51,6 +53,21 @@ namespace Presentation.BaseApi.Controllers
             };
 
             return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("Insert")]
+        public async Task<IActionResult> Insert(AddUserDto user)
+        {
+            bool result = await _userService.Insert(user);
+            ResponseDto response = new ResponseDto()
+            {
+                IsSuccess = result,
+                Message = result ? CrudMessages.CreateSuccess : CrudMessages.CreateError,
+                Result = string.Empty,
+            };
+
+            return result ? Ok(response) : BadRequest(response);
         }
         #endregion
 

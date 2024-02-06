@@ -1,4 +1,4 @@
-﻿using Domain.Services.Dtos;
+﻿using Domain.Services.Dtos.User;
 
 namespace Domain.Services.Services.Interfaces
 {
@@ -6,6 +6,9 @@ namespace Domain.Services.Services.Interfaces
     {
         public List<UserDto> GetAll();
         public UserDto GetById(int id);
+        public Task<bool> Insert(AddUserDto dto);
+        public Task<bool> Update(UpdateUserDto user);
+
 
     }
 }
