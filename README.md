@@ -7,18 +7,23 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
 BaseApi/
 ├── Presentation.BaseApi/
 │   ├── Controllers/
+│   │   ├── UserController.cs
 │   ├── Dtos/
 │   │   ├── UserDto.cs
 │   ├── Filters/
+│   │   ├── CustomExceptionFilter.cs
+│   ├── Properties/
+│   │   ├── launchSettings.json
 ├── IoC.BaseApi/
 │   ├── Configurator/
 │   │   ├── DependencyInjectionConfigurator.cs
 ├── Domain.Services/
-│   ├── Interfaces/
-│   │   ├── IUserService.cs
 │   ├── Dtos/
 │   │   ├── UserDto.cs
-│   ├── UserService.cs
+│   ├── Services/
+│   │   ├── Interfaces/
+│   │   │   ├── IUserService.cs
+│   │   ├── UserService.cs
 ├── Infrastructure.Core/
 │   ├── Database/
 │   │   ├── BaseApiDbContext.cs
@@ -40,7 +45,9 @@ BaseApi/
 │   │   │   ├── RolePermissionEntity.cs
 │   │   │   ├── UserEntity.cs
 ├── Common.BaseApi/
-│   ├── Exceptions.cs
+│   ├── Resources/
+│   │   ├── BusinessException.cs
+│   │   ├── HttpResponseException.cs
 │   ├── Enums.cs
 │   ├── Resources/
 │   │   ├── CrudMessages.resx
