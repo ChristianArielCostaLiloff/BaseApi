@@ -2,12 +2,14 @@
 using Domain.Services.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.BaseApi.Dtos;
+using Presentation.BaseApi.Filters;
 
 
 namespace Presentation.BaseApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [TypeFilter(typeof(CustomExceptionFilter))]
     public class UserController : ControllerBase
     {
         #region Attributes
@@ -26,7 +28,7 @@ namespace Presentation.BaseApi.Controllers
         [Route("GetAll")]
         public IActionResult GetAll()
         {
-            List<UserDto> userDtos = _userService.GetUsers();
+            List<UserDto> userDtos = _userService.GetAll();
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = true,
@@ -36,7 +38,21 @@ namespace Presentation.BaseApi.Controllers
 
             return Ok(response);
         }
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public IActionResult GetById(int id)
+        {
+            UserDto userDto = _userService.GetById(id);
+            ResponseDto response = new ResponseDto()
+            {
+                IsSuccess = true,
+                Message = string.Empty,
+                Result = userDto,
+            };
+
+            return Ok(response);
+        }
         #endregion
-        
+
     }
 }

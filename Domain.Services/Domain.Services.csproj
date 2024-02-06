@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Common.BaseApi\Common.BaseApi.csproj" />
     <ProjectReference Include="..\Infraestructure.Core\Infraestructure.Core.csproj" />
     <ProjectReference Include="..\Infraestructure.Entity\Infraestructure.Entity.csproj" />

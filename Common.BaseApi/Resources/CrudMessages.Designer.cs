@@ -22,21 +22,21 @@ namespace Common.BaseApi.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CrudMessages {
+    public class CrudMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CrudMessages() {
+        public CrudMessages() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Common.BaseApi.Resources.CrudMessages", typeof(CrudMessages).Assembly);
@@ -51,7 +51,7 @@ namespace Common.BaseApi.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while creating the record..
         /// </summary>
-        internal static string CreateError {
+        public static string CreateError {
             get {
                 return ResourceManager.GetString("CreateError", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record created successfully..
         /// </summary>
-        internal static string CreateSuccess {
+        public static string CreateSuccess {
             get {
                 return ResourceManager.GetString("CreateSuccess", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while deleting the record..
         /// </summary>
-        internal static string DeleteError {
+        public static string DeleteError {
             get {
                 return ResourceManager.GetString("DeleteError", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record deleted successfully..
         /// </summary>
-        internal static string DeleteSuccess {
+        public static string DeleteSuccess {
             get {
                 return ResourceManager.GetString("DeleteSuccess", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to The record already exists..
         /// </summary>
-        internal static string DuplicateRecord {
+        public static string DuplicateRecord {
             get {
                 return ResourceManager.GetString("DuplicateRecord", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record not found..
         /// </summary>
-        internal static string NotFound {
+        public static string NotFound {
             get {
                 return ResourceManager.GetString("NotFound", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while retrieving the record..
         /// </summary>
-        internal static string ReadError {
+        public static string ReadError {
             get {
                 return ResourceManager.GetString("ReadError", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record retrieved successfully..
         /// </summary>
-        internal static string ReadSuccess {
+        public static string ReadSuccess {
             get {
                 return ResourceManager.GetString("ReadSuccess", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while updating the record..
         /// </summary>
-        internal static string UpdateError {
+        public static string UpdateError {
             get {
                 return ResourceManager.GetString("UpdateError", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record updated successfully..
         /// </summary>
-        internal static string UpdateSuccess {
+        public static string UpdateSuccess {
             get {
                 return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Common.BaseApi.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Validation failed. Please check your input..
         /// </summary>
-        internal static string ValidationFailed {
+        public static string ValidationFailed {
             get {
                 return ResourceManager.GetString("ValidationFailed", resourceCulture);
             }

@@ -42,7 +42,10 @@ BaseApi/
 ├── Common.BaseApi/
 │   ├── Exceptions.cs
 │   ├── Enums.cs
-├── Tests.Domain.Services/
+│   ├── Resources/
+│   │   ├── CrudMessages.resx
+│   │   ├── StatusCodeMessages.resx
+├── Tests.BaseApi/
 │   ├── GlobalUsings.cs
 │   ├── UnitTest/
 │   │   ├── UserServiceTest.cs
