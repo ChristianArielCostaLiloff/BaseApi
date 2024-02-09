@@ -6,8 +6,8 @@ namespace Infraestructure.Core.UnitOfWork.Interfaces
     public interface IUnitOfWork
     {
         // Security
-        IRepository<RoleEntity> RoleRepository { get; }
-        IRepository<UserEntity> UserRepository { get; }
+        IRepository<Role> RoleRepository { get; }
+        IRepository<User> UserRepository { get; }
 
         Task<int> Save();
 

@@ -8,7 +8,7 @@ namespace Domain.Services.Services.Interfaces
         public UserDto GetById(int id);
         public Task<bool> Insert(AddUserDto dto);
         public Task<bool> Update(UpdateUserDto user);
-
+        public Task<bool> Delete(int id);
 
     }
 }

@@ -69,6 +69,37 @@ namespace Presentation.BaseApi.Controllers
 
             return result ? Ok(response) : BadRequest(response);
         }
+
+        [HttpPut]
+        [Route("Update")]
+        public async Task<IActionResult> Update(UpdateUserDto user)
+        {
+            bool result = await _userService.Update(user);
+            ResponseDto response = new ResponseDto()
+            {
+                IsSuccess = result,
+                Message = result ? CrudMessages.UpdateSuccess : CrudMessages.UpdateError,
+                Result = string.Empty,
+            };
+
+            return result ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            bool isDeleted = await _userService.Delete(id);
+
+            ResponseDto response = new ResponseDto()
+            {
+                IsSuccess = isDeleted,
+                Message = isDeleted ? CrudMessages.DeleteSuccess : CrudMessages.DeleteError,
+                Result = string.Empty,
+            };
+
+            return Ok(response);
+        }
         #endregion
 
     }

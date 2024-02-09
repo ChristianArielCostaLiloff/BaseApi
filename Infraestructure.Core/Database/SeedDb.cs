@@ -29,24 +29,24 @@ namespace Infraestructure.Core.Database
 
         public async Task CheckRoleAsync()
         {
-            if (!_context.RoleEntity.Any())
+            if (!_context.Roles.Any())
             {
-                await _context.AddRangeAsync(new List<RoleEntity>()
+                await _context.AddRangeAsync(new List<Role>()
                 {
-                    new RoleEntity()
+                    new Role()
                     {
                         Id = (int)Enums.RoleId.Admin,
-                        Description = "Admin"
+                        Name = "Admin"
                     },
-                    new RoleEntity()
+                    new Role()
                     {
                         Id = (int)Enums.RoleId.Manager,
-                        Description = "Manager"
+                        Name = "Manager"
                     },
-                    new RoleEntity()
+                    new Role()
                     {
                         Id = (int)Enums.RoleId.User,
-                        Description = "User"
+                        Name = "User"
                     }
                 });
                 await _context.SaveChangesAsync();
@@ -55,23 +55,23 @@ namespace Infraestructure.Core.Database
 
         public async Task CheckUserAsync()
         {
-            if (!_context.UserEntity.Any())
+            if (!_context.Users.Any())
             {
-                await _context.AddRangeAsync(new List<UserEntity>()
+                await _context.AddRangeAsync(new List<User>()
                 {
-                    new UserEntity()
+                    new User()
                     {
-                        Description = "Admin Name",
+                        Name = "Admin Name",
                         IdRole = (int)Enums.RoleId.Admin
                     },
-                    new UserEntity()
+                    new User()
                     {
-                        Description = "Manager Name",
+                        Name = "Manager Name",
                         IdRole = (int)Enums.RoleId.Manager
                     },
-                    new UserEntity()
+                    new User()
                     {
-                        Description = "User Name",
+                        Name = "User Name",
                         IdRole = (int)Enums.RoleId.User
                     },
                 });
@@ -81,29 +81,29 @@ namespace Infraestructure.Core.Database
 
         public async Task CheckPermissionAsync()
         {
-            if (!_context.PermissionEntity.Any())
+            if (!_context.Permissions.Any())
             {
-                _context.PermissionEntity.AddRange(new List<PermissionEntity>()
+                _context.Permissions.AddRange(new List<Permission>()
                 {
-                    new PermissionEntity
+                    new Permission
                     {
                         Id = (int)PermissionId.UserCreate,
                         Name = "Create users",
                         Description = "Permission to create users."
                     },
-                    new PermissionEntity
+                    new Permission
                     {
                         Id = (int)PermissionId.UserRead,
                         Name = "View users",
                         Description = "Permission to view users."
                     },
-                    new PermissionEntity
+                    new Permission
                     {
                         Id = (int)PermissionId.UserUpdate,
                         Name = "Update users",
                         Description = "Permission to update users."
                     },
-                    new PermissionEntity
+                    new Permission
                     {
                         Id = (int)PermissionId.UserDelete,
                         Name = "Delete users",
@@ -117,31 +117,31 @@ namespace Infraestructure.Core.Database
 
         public async Task CheckRolePermissionAsync()
         {
-            if (!_context.RolePermissionEntity.Any(x => x.IdRole == (int)Enums.RoleId.Admin))
+            if (!_context.RolePermissions.Any(x => x.IdRole == (int)Enums.RoleId.Admin))
             {
-                List<RolePermissionEntity> rolesPermissionAdmin = _context.PermissionEntity.Select(permission => new RolePermissionEntity
+                List<RolePermission> rolesPermissionAdmin = _context.Permissions.Select(permission => new RolePermission
                 {
                     IdPermission = permission.Id,
                     IdRole = (int)Enums.RoleId.Admin
                 }).ToList();
 
-                _context.RolePermissionEntity.AddRange(rolesPermissionAdmin);
+                _context.RolePermissions.AddRange(rolesPermissionAdmin);
 
                 await _context.SaveChangesAsync();
             }
 
-            if (!_context.RolePermissionEntity.Any(x => x.IdRole == (int)Enums.RoleId.Manager))
+            if (!_context.RolePermissions.Any(x => x.IdRole == (int)Enums.RoleId.Manager))
             {
-                List<RolePermissionEntity> rolesPermissionAdmin = new List<RolePermissionEntity>
+                List<RolePermission> rolesPermissionAdmin = new List<RolePermission>
                 {
-                    new RolePermissionEntity
+                    new RolePermission
                     {
                         IdPermission = (int)Enums.PermissionId.UserRead,
                         IdRole = (int)(int)Enums.RoleId.Manager
                     }
                 };
 
-                _context.RolePermissionEntity.AddRange(rolesPermissionAdmin);
+                _context.RolePermissions.AddRange(rolesPermissionAdmin);
 
                 await _context.SaveChangesAsync();
             }

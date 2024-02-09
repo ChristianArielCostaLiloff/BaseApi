@@ -3,18 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infraestructure.Entity.Models.Security
 {
-    [Table("RolePermission", Schema = "Security")]
-    public class RolePermissionEntity
+    [Table("RolePermissions", Schema = "Security")]
+    public class RolePermission
     {
         [Key]
         public int Id { get; set; }
 
         [ForeignKey("RoleEntity")]
         public int IdRole { get; set; }
-        public RoleEntity RoleEntity { get; set; } = null!;
+        public Role Role { get; set; } = null!;
 
-        [ForeignKey("PermissionEntity")]
+        [ForeignKey("Permission")]
         public int IdPermission { get; set; }
-        public PermissionEntity PermissionEntity { get; set; } = null!;
+        public Permission Permission { get; set; } = null!;
     }
 }

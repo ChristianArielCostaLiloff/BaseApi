@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Core.Migrations
 {
     [DbContext(typeof(BaseApiDbContext))]
-    [Migration("20240204201641_permissionsMigration")]
-    partial class permissionsMigration
+    [Migration("20240209005831_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace Infraestructure.Core.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.PermissionEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.Permission", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -44,21 +44,27 @@ namespace Infraestructure.Core.Migrations
                     b.ToTable("Permissions", "Security");
                 });
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.RoleEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.Role", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role", "Security");
+                    b.ToTable("Roles", "Security");
                 });
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.RolePermissionEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.RolePermission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,10 +85,10 @@ namespace Infraestructure.Core.Migrations
                     b.HasIndex("IdPermission", "IdRole")
                         .IsUnique();
 
-                    b.ToTable("RolePermission", "Security");
+                    b.ToTable("RolePermissions", "Security");
                 });
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.UserEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,41 +104,56 @@ namespace Infraestructure.Core.Migrations
                     b.Property<int>("IdRole")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdRole");
 
-                    b.ToTable("User", "Security");
+                    b.ToTable("Users", "Security");
                 });
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.RolePermissionEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.RolePermission", b =>
                 {
-                    b.HasOne("Infraestructure.Entity.Models.Security.PermissionEntity", "PermissionEntity")
-                        .WithMany()
+                    b.HasOne("Infraestructure.Entity.Models.Security.Permission", "Permission")
+                        .WithMany("RolePermissions")
                         .HasForeignKey("IdPermission")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Infraestructure.Entity.Models.Security.RoleEntity", "RoleEntity")
-                        .WithMany()
+                    b.HasOne("Infraestructure.Entity.Models.Security.Role", "Role")
+                        .WithMany("RolePermissions")
                         .HasForeignKey("IdRole")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PermissionEntity");
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.User", b =>
+                {
+                    b.HasOne("Infraestructure.Entity.Models.Security.Role", "RoleEntity")
+                        .WithMany()
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("RoleEntity");
                 });
 
-            modelBuilder.Entity("Infraestructure.Entity.Models.Security.UserEntity", b =>
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.Permission", b =>
                 {
-                    b.HasOne("Infraestructure.Entity.Models.Security.RoleEntity", "RoleEntity")
-                        .WithMany()
-                        .HasForeignKey("IdRole")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("RolePermissions");
+                });
 
-                    b.Navigation("RoleEntity");
+            modelBuilder.Entity("Infraestructure.Entity.Models.Security.Role", b =>
+                {
+                    b.Navigation("RolePermissions");
                 });
 #pragma warning restore 612, 618
         }

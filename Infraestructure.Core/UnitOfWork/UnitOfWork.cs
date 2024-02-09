@@ -22,14 +22,14 @@ namespace Infraestructure.Core.UnitOfWork
         #endregion
 
         #region Properties
-        private IRepository<RoleEntity>? _roleRepository;
-        private IRepository<UserEntity>? _userRepository;
+        private IRepository<Role>? _roleRepository;
+        private IRepository<User>? _userRepository;
         #endregion
 
         #region Members
         // Lazy Loading
-        public IRepository<RoleEntity> RoleRepository => _roleRepository ??= new Repository<RoleEntity>(_context);
-        public IRepository<UserEntity> UserRepository => _userRepository ??= new Repository<UserEntity>(_context);
+        public IRepository<Role> RoleRepository => _roleRepository ??= new Repository<Role>(_context);
+        public IRepository<User> UserRepository => _userRepository ??= new Repository<User>(_context);
         #endregion
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()

@@ -23,25 +23,25 @@ namespace Domain.Services.Services
         #region Public Methods
         public List<UserDto> GetAll()
         {
-            IEnumerable<UserEntity> userEntities = _unitOfWork.UserRepository.GetAll();
+            IEnumerable<User> userEntityList = _unitOfWork.UserRepository.GetAll();
 
-            List<UserDto> usersDtos = userEntities.Select(user => new UserDto
+            List<UserDto> userDtoList = userEntityList.Select(user => new UserDto
             {
                 Id = user.Id,
-                Description = user.Description
+                Description = user.Name
             }).ToList();
 
-            return usersDtos;
+            return userDtoList;
         }
 
         public UserDto GetById(int id)
         {
-            UserEntity userEntity = GetUserEntity(id);
+            User userEntity = GetUserEntity(id);
 
             UserDto userDto = new UserDto
             {
                 Id = userEntity.Id,
-                Description = userEntity.Description
+                Description = userEntity.Name
             };
 
             return userDto;
@@ -49,21 +49,21 @@ namespace Domain.Services.Services
 
         public async Task<bool> Insert(AddUserDto user)
         {
-            UserEntity newUser = new UserEntity
+            User userEntity = new User
             {
-                Description = user.Description,
+                Name = user.Description,
                 IdRole = user.IdRole,
             };
-            _unitOfWork.UserRepository.Insert(newUser);
+            _unitOfWork.UserRepository.Insert(userEntity);
 
             return await _unitOfWork.Save() > 0;
         }
 
         public async Task<bool> Update(UpdateUserDto user)
         {
-            UserEntity userEntity = GetUserEntity(user.Id);
+            User userEntity = GetUserEntity(user.Id);
 
-            userEntity.Description = user.Description;
+            userEntity.Name = user.Description;
             userEntity.IdRole = user.IdRole;
 
             _unitOfWork.UserRepository.Update(userEntity);
@@ -71,11 +71,19 @@ namespace Domain.Services.Services
             return await _unitOfWork.Save() > 0;
         }
 
+        public async Task<bool> Delete(int id)
+        {
+            User userEntity = GetUserEntity(id);
+
+            _unitOfWork.UserRepository.Delete(userEntity);
+
+            return await _unitOfWork.Save() > 0;
+        }
         #endregion
         #region Public Methods
-        private UserEntity GetUserEntity(int id)
+        private User GetUserEntity(int id)
         {
-            UserEntity? userEntity = _unitOfWork.UserRepository.FirstOrDefault(user => user.Id == id);
+            User? userEntity = _unitOfWork.UserRepository.FirstOrDefault(user => user.Id == id);
 
             if (userEntity == null)
                 throw new BusinessException(CrudMessages.NotFound);
