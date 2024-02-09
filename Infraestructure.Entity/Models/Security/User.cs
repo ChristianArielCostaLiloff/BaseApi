@@ -16,8 +16,8 @@ namespace Infraestructure.Entity.Models.Security
         [StringLength(50)]
         public string Description { get; set; } = string.Empty;
 
-        [ForeignKey("RoleEntity")]
+        [ForeignKey("Role")]
         public int IdRole { get; set; }
-        public Role RoleEntity { get; set; } = null!;
+        public Role Role { get; set; } = null!;
     }
 }

@@ -9,7 +9,7 @@ namespace Infraestructure.Entity.Models.Security
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("RoleEntity")]
+        [ForeignKey("Role")]
         public int IdRole { get; set; }
         public Role Role { get; set; } = null!;
 

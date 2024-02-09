@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Core.Migrations
 {
     [DbContext(typeof(BaseApiDbContext))]
-    [Migration("20240209005831_initialMigration")]
+    [Migration("20240209050006_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -137,13 +137,13 @@ namespace Infraestructure.Core.Migrations
 
             modelBuilder.Entity("Infraestructure.Entity.Models.Security.User", b =>
                 {
-                    b.HasOne("Infraestructure.Entity.Models.Security.Role", "RoleEntity")
+                    b.HasOne("Infraestructure.Entity.Models.Security.Role", "Role")
                         .WithMany()
                         .HasForeignKey("IdRole")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("RoleEntity");
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Infraestructure.Entity.Models.Security.Permission", b =>
