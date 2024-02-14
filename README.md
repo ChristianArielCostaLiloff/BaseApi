@@ -37,13 +37,21 @@ BaseApi/
 │   │   ├── Interfaces/
 │   │   │   ├── IUnitOfWork.cs
 │   │   ├── UnitOfWork.cs
+├── Infrastructure.Database/
+│   │   ├── Security/
+│   │   │   ├── Tables/
+│   │   │   │   ├── Permissions.cs
+│   │   │   │   ├── RolePermissions.cs
+│   │   │   │   ├── Roles.cs
+│   │   │   │   ├── Users.cs
+│   │   │   ├── Security.sql
 ├── Infrastructure.Entity/
 │   ├── Models/
 │   │   ├── Secuirity/
-│   │   │   ├── PermissionEntity.cs
-│   │   │   ├── RoleEntity.cs
-│   │   │   ├── RolePermissionEntity.cs
-│   │   │   ├── UserEntity.cs
+│   │   │   ├── Permission.cs
+│   │   │   ├── Role.cs
+│   │   │   ├── RolePermission.cs
+│   │   │   ├── User.cs
 ├── Common.BaseApi/
 │   ├── Resources/
 │   │   ├── BusinessException.cs

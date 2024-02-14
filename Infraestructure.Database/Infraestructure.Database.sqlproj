@@ -60,6 +60,7 @@
     <Folder Include="Properties" />
     <Folder Include="Security\" />
     <Folder Include="Security\Tables\" />
+    <Folder Include="SetupScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\Tables\Permissions.sql" />
@@ -67,5 +68,12 @@
     <Build Include="Security\Tables\RolePermissions.sql" />
     <Build Include="Security\Tables\Users.sql" />
     <Build Include="Security\Security.sql" />
+    <Build Include="SetupScripts\CacheProcedureQueueTrigerV1.sql" />
+    <Build Include="SetupScripts\ProcedureV2.sql" />
+    <Build Include="SetupScripts\QueueV2.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SetupScripts\RolesPermissionsSetup.sql" />
+    <None Include="SetupScripts\CacheProcedureQueueTrigerV2.sql" />
   </ItemGroup>
 </Project>
