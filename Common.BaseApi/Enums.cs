@@ -11,7 +11,6 @@
 
         public enum PermissionId
         {
-            // Permission IDs follow a pattern: incremented by 10 per section
             // User
             UserCreate = 1,
             UserRead = 2,

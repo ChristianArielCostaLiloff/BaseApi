@@ -7,12 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\CrudMessages.Designer.cs">
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Messages\CrudMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CrudMessages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\StatusCodeMessages.Designer.cs">
+    <Compile Update="Messages\AuthMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\StatusCodeMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>StatusCodeMessages.resx</DependentUpon>
@@ -20,11 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\CrudMessages.resx">
+    <EmbeddedResource Update="Messages\CrudMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CrudMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\StatusCodeMessages.resx">
+    <EmbeddedResource Update="Messages\AuthMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuthMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\StatusCodeMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>StatusCodeMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Core.Migrations
 {
     [DbContext(typeof(BaseApiDbContext))]
-    [Migration("20240209050006_initialMigration")]
+    [Migration("20240219231612_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -109,9 +109,22 @@ namespace Infraestructure.Core.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdRole");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("Users", "Security");
                 });

@@ -15,7 +15,14 @@ namespace Infraestructure.Core.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().Property(t => t.Id).ValueGeneratedNever();
+            // Call base method for default configuration
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
+
+            modelBuilder.Entity<Role>().Property(r => r.Id).ValueGeneratedNever();
             modelBuilder.Entity<Role>()
                 .HasMany(role => role.RolePermissions)
                 .WithOne(rolePermission => rolePermission.Role)

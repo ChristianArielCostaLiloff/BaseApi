@@ -1,6 +1,6 @@
 using Infraestructure.Core.Database;
 using Microsoft.EntityFrameworkCore;
-using IoC.BaseApi.Configurator;
+using IoC.BaseApi.Configurators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +21,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+#region JWT
+var tokenAppSetting = builder.Configuration.GetSection("Tokens");
+JwtAuthConfigurator.ConfigureJwtAuthentication(builder.Services, tokenAppSetting);
+#endregion
 
 var app = builder.Build();
 

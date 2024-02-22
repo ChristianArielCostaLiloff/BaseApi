@@ -20,7 +20,7 @@ namespace Infraestructure.Core.Repository
         {
             return includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
         }
-
+        
         #region IRepository<TEntity> Members
 
         public IQueryable<TEntity> AsQueryable()
@@ -41,11 +41,26 @@ namespace Infraestructure.Core.Repository
             return query.Where(where);
         }
 
+        public TEntity First(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = AsQueryable().AsNoTracking();
+            query = PerformInclusions(includeProperties, query);
+            return query.First(where);
+        }
+
+
         public TEntity? FirstOrDefault(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = AsQueryable().AsNoTracking();
             query = PerformInclusions(includeProperties, query);
-            return query.AsNoTracking().FirstOrDefault(where);
+            return query.FirstOrDefault(where);
+        }
+
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = AsQueryable().AsNoTracking();
+            query = PerformInclusions(includeProperties, query);
+            return await query.FirstOrDefaultAsync(where);
         }
 
         public void Insert(TEntity entity)
@@ -100,6 +115,7 @@ namespace Infraestructure.Core.Repository
         }
 
         #endregion IRepository<TEntity> Members
+
 
     }
 

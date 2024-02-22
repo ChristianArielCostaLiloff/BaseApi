@@ -1,4 +1,5 @@
 ﻿using Common.BaseApi;
+using Common.BaseApi.Helpers;
 using Infraestructure.Entity.Models.Security;
 using static Common.BaseApi.Enums;
 
@@ -61,16 +62,22 @@ namespace Infraestructure.Core.Database
                 {
                     new User()
                     {
+                        UserName = "Admin",
+                        Password = PasswordHelper.PassEncrypt("qwerty"),
                         Name = "Admin Name",
                         IdRole = (int)Enums.RoleId.Admin
                     },
                     new User()
                     {
+                        UserName = "Manager",
+                        Password = PasswordHelper.PassEncrypt("qwerty"),
                         Name = "Manager Name",
                         IdRole = (int)Enums.RoleId.Manager
                     },
                     new User()
                     {
+                        UserName = "User",
+                        Password = PasswordHelper.PassEncrypt("qwerty"),
                         Name = "User Name",
                         IdRole = (int)Enums.RoleId.User
                     },

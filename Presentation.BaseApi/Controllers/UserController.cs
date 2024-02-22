@@ -1,4 +1,5 @@
-﻿using Common.BaseApi.Resources;
+﻿using Common.BaseApi;
+using Common.BaseApi.Messages;
 using Domain.Services.Dtos.User;
 using Domain.Services.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,7 @@ namespace Presentation.BaseApi.Controllers
         #region Services
         [HttpGet]
         [Route("GetAll")]
+        [CustomPermissionFilter(Enums.PermissionId.UserRead)]
         public IActionResult GetAll()
         {
             List<UserDto> userDtos = _userService.GetAll();
@@ -42,6 +44,7 @@ namespace Presentation.BaseApi.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
+        [CustomPermissionFilter(Enums.PermissionId.UserRead)]
         public IActionResult GetById(int id)
         {
             UserDto userDto = _userService.GetById(id);
@@ -57,6 +60,7 @@ namespace Presentation.BaseApi.Controllers
 
         [HttpPost]
         [Route("Insert")]
+        [CustomPermissionFilter(Enums.PermissionId.UserCreate)]
         public async Task<IActionResult> Insert(AddUserDto user)
         {
             bool result = await _userService.Insert(user);
@@ -72,6 +76,7 @@ namespace Presentation.BaseApi.Controllers
 
         [HttpPut]
         [Route("Update")]
+        [CustomPermissionFilter(Enums.PermissionId.UserUpdate)]
         public async Task<IActionResult> Update(UpdateUserDto user)
         {
             bool result = await _userService.Update(user);
@@ -87,6 +92,7 @@ namespace Presentation.BaseApi.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
+        [CustomPermissionFilter(Enums.PermissionId.UserDelete)]
         public async Task<IActionResult> Delete(int id)
         {
             bool isDeleted = await _userService.Delete(id);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Common.BaseApi.Resources {
+namespace Common.BaseApi.Messages {
     using System;
     
     
@@ -29,17 +29,17 @@ namespace Common.BaseApi.Resources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public CrudMessages() {
+        internal CrudMessages() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Common.BaseApi.Resources.CrudMessages", typeof(CrudMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Common.BaseApi.Messages.CrudMessages", typeof(CrudMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Common.BaseApi.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -68,7 +68,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("CreateError", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Record created successfully..
         /// </summary>
@@ -77,7 +77,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("CreateSuccess", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while deleting the record..
         /// </summary>
@@ -86,7 +86,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("DeleteError", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Record deleted successfully..
         /// </summary>
@@ -95,7 +95,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("DeleteSuccess", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to The record already exists..
         /// </summary>
@@ -104,7 +104,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("DuplicateRecord", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Record not found..
         /// </summary>
@@ -113,7 +113,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("NotFound", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while retrieving the record..
         /// </summary>
@@ -122,7 +122,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("ReadError", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Record retrieved successfully..
         /// </summary>
@@ -131,7 +131,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("ReadSuccess", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Error occurred while updating the record..
         /// </summary>
@@ -140,7 +140,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("UpdateError", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Record updated successfully..
         /// </summary>
@@ -149,7 +149,7 @@ namespace Common.BaseApi.Resources {
                 return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Validation failed. Please check your input..
         /// </summary>

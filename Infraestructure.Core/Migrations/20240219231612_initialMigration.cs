@@ -77,6 +77,8 @@ namespace Infraestructure.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     IdRole = table.Column<int>(type: "int", nullable: false)
@@ -111,6 +113,13 @@ namespace Infraestructure.Core.Migrations
                 schema: "Security",
                 table: "Users",
                 column: "IdRole");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_UserName",
+                schema: "Security",
+                table: "Users",
+                column: "UserName",
+                unique: true);
         }
 
         /// <inheritdoc />

@@ -1,5 +1,5 @@
 ﻿using Common.BaseApi.Exceptions;
-using Common.BaseApi.Resources;
+using Common.BaseApi.Messages;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
