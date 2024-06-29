@@ -1,18 +1,18 @@
-﻿using Common.BaseApi.Constants;
-using Common.BaseApi.Helpers;
+﻿using Common.Constants;
+using Common.Helpers;
 using Infraestructure.Entity.Models.Security;
-using static Common.BaseApi.Constants.Enums;
+using static Common.Constants.Enums;
 
 namespace Infraestructure.Core.Database
 {
     public class SeedDb
     {
         #region Attributes
-        private readonly BaseApiDbContext _context;
+        private readonly DbContext _context;
         #endregion
 
         #region Builder
-        public SeedDb(BaseApiDbContext context)
+        public SeedDb(DbContext context)
         {
             _context = context;
         }

@@ -4,67 +4,78 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
 
 ## Project Structure
 ```bash
-BaseApi/
-├── Presentation.BaseApi/
-│   ├── Controllers/
-│   │   ├── UserController.cs
-│   ├── Dtos/
-│   │   ├── UserDto.cs
-│   ├── Filters/
-│   │   ├── CustomExceptionFilter.cs
-│   ├── Properties/
-│   │   ├── launchSettings.json
-├── IoC.BaseApi/
-│   ├── Configurator/
-│   │   ├── DependencyInjectionConfigurator.cs
-├── Domain.Services/
-│   ├── Dtos/
-│   │   ├── UserDto.cs
-│   ├── Services/
-│   │   ├── Interfaces/
-│   │   │   ├── IUserService.cs
-│   │   ├── UserService.cs
-├── Infrastructure.Core/
-│   ├── Database/
-│   │   ├── BaseApiDbContext.cs
-│   │   ├── SeedDb.cs
-│   ├── Migrations/
-│   ├── Repositories/
-│   │   ├── Interfaces/
-│   │   │   ├── IRepository.cs
-│   │   ├── Repository.cs
-│   ├── UnitOfWork/
-│   │   ├── Interfaces/
-│   │   │   ├── IUnitOfWork.cs
-│   │   ├── UnitOfWork.cs
-├── Infrastructure.Database/
-│   │   ├── Security/
-│   │   │   ├── Tables/
-│   │   │   │   ├── Permissions.cs
-│   │   │   │   ├── RolePermissions.cs
-│   │   │   │   ├── Roles.cs
-│   │   │   │   ├── Users.cs
-│   │   │   ├── Security.sql
-├── Infrastructure.Entity/
-│   ├── Models/
-│   │   ├── Secuirity/
-│   │   │   ├── Permission.cs
-│   │   │   ├── Role.cs
-│   │   │   ├── RolePermission.cs
-│   │   │   ├── User.cs
-├── Common.BaseApi/
-│   ├── Resources/
-│   │   ├── BusinessException.cs
-│   │   ├── HttpResponseException.cs
-│   ├── Enums.cs
-│   ├── Resources/
-│   │   ├── CrudMessages.resx
-│   │   ├── StatusCodeMessages.resx
-├── Tests.BaseApi/
-│   ├── GlobalUsings.cs
-│   ├── UnitTest/
-│   │   ├── UserServiceTest.cs
-├── README.md
+.
+└── TemplateAPI/
+    ├── Common/
+    │   ├── Constants/
+    │   │   ├── AuthConstants.cs
+    │   │   └── Enums.cs
+    │   ├── Exceptions/
+    │   │   ├── BusinessException.cs
+    │   │   ├── CacheException.cs
+    │   │   └── HttpResponseException.cs
+    │   ├── Helpers/
+    │   │   └── PasswordHelper.cs
+    │   └── Messages/
+    │       ├── AuthMessages.resx
+    │       ├── CrudMessages.resx
+    │       └── StatusCodeMessages.resx
+    ├── Domain.Services/
+    │   ├── Dtos/
+    │   │   ├── Login/
+    │   │   │   ├── LoginRequestDto.cs
+    │   │   │   └── LoginResponseDto.cs
+    │   │   └── User/
+    │   │       ├── AddUserDto.cs
+    │   │       ├── UpdateUserDto.cs
+    │   │       └── UserDto.cs
+    │   └── Services/
+    │       ├── Interfaces/
+    │       │   ├── IAuthService.cs
+    │       │   ├── IRolePermissionCacheService.cs
+    │       │   └── IUserService.cs
+    │       ├── AuthService.cs
+    │       ├── RolePermissionCacheService.cs
+    │       └── UserService.cs
+    ├── Infraestructure.Core/
+    │   ├── Database/
+    │   │   ├── DbContext.cs
+    │   │   └── SeedDb.cs
+    │   ├── Migrations
+    │   ├── Repositories/
+    │   │   ├── Interface/
+    │   │   │   └── IRepository.cs
+    │   │   └── Repository.cs
+    │   └── UnitOfWork/
+    │       ├── Interfaces/
+    │       │   └── IUnitOfWork.cs
+    │       └── UnitOfWork.cs
+    ├── Infraestructure.Database
+    ├── Infraestructure.Entity/
+    │   └── Models/
+    │       └── Security/
+    │           ├── Permission.cs
+    │           ├── Role.cs
+    │           ├── RolePermission.cs
+    │           └── User.cs
+    ├── IoC/
+    │   └── Configurators/
+    │       ├── DependencyInjectionConfigurator.cs
+    │       └── JwtAuthConfigurator.cs
+    ├── Presentation/
+    │   ├── Properties/
+    │   │   └── launchSettings.json
+    │   ├── Controllers/
+    │   │   ├── AuthController.cs
+    │   │   └── UserController.cs
+    │   ├── Dtos/
+    │   │   └── ResponseDto.cs
+    │   ├── Filters/
+    │   │   ├── CustomExceptionFilter.cs
+    │   │   └── CustomPermissionFilter.cs
+    │   ├── appsettings.json
+    │   └── Program.cs
+    └── Test
 ```
 ## Setup and Execution
 

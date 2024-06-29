@@ -1,5 +1,5 @@
-﻿using Common.BaseApi.Exceptions;
-using Common.BaseApi.Messages;
+﻿using Common.Exceptions;
+using Common.Messages;
 using Domain.Services.Dtos.User;
 using Domain.Services.Services.Interfaces;
 using Infraestructure.Core.UnitOfWork.Interfaces;

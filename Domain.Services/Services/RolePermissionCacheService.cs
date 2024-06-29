@@ -1,12 +1,13 @@
-﻿using Common.BaseApi.Exceptions;
-using Common.BaseApi.Messages;
+﻿using Common.Exceptions;
+using Common.Messages;
+using Domain.Services.Services.Interfaces;
 using Infraestructure.Core.UnitOfWork.Interfaces;
 using Infraestructure.Entity.Models.Security;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Domain.Services.Services
 {
-    public class RolePermissionCacheService
+    public class RolePermissionCacheService : IRolePermissionCacheService
     {
         private readonly IMemoryCache _cache;
         private readonly IUnitOfWork _unitOfWork;

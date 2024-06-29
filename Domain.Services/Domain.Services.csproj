@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common.BaseApi\Common.BaseApi.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Infraestructure.Core\Infraestructure.Core.csproj" />
     <ProjectReference Include="..\Infraestructure.Entity\Infraestructure.Entity.csproj" />
   </ItemGroup>

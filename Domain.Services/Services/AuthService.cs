@@ -1,7 +1,7 @@
-﻿using Common.BaseApi.Exceptions;
-using Common.BaseApi.Helpers;
-using Common.BaseApi.Messages;
-using Domain.Services.Dtos.User.Login;
+﻿using Common.Exceptions;
+using Common.Helpers;
+using Common.Messages;
+using Domain.Services.Dtos.Login;
 using Domain.Services.Services.Interfaces;
 using Infraestructure.Core.UnitOfWork.Interfaces;
 using Infraestructure.Entity.Models.Security;
@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using static Common.BaseApi.Constants.AuthConstants;
+using static Common.Constants.AuthConstants;
 
 namespace Domain.Services.Services
 {
