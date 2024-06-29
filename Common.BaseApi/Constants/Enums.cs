@@ -1,4 +1,4 @@
-﻿namespace Common.BaseApi
+﻿namespace Common.BaseApi.Constants
 {
     public class Enums
     {

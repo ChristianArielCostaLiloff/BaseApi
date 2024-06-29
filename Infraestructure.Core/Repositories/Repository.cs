@@ -56,7 +56,7 @@ namespace Infraestructure.Core.Repository
             return query.FirstOrDefault(where);
         }
 
-        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
+        public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> where, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = AsQueryable().AsNoTracking();
             query = PerformInclusions(includeProperties, query);

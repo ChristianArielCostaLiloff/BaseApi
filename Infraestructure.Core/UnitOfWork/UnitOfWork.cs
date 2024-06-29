@@ -24,12 +24,14 @@ namespace Infraestructure.Core.UnitOfWork
         #region Properties
         private IRepository<Role>? _roleRepository;
         private IRepository<User>? _userRepository;
+        private IRepository<RolePermission>? _rolePermissionRepository;
         #endregion
 
         #region Members
         // Lazy Loading
         public IRepository<Role> RoleRepository => _roleRepository ??= new Repository<Role>(_context);
         public IRepository<User> UserRepository => _userRepository ??= new Repository<User>(_context);
+        public IRepository<RolePermission> RolePermissionRepository => _rolePermissionRepository ??= new Repository<RolePermission>(_context);
         #endregion
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()

@@ -29,14 +29,14 @@ namespace Common.BaseApi.Messages {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal StatusCodeMessages() {
+        public StatusCodeMessages() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Common.BaseApi.Messages.StatusCodeMessages", typeof(StatusCodeMessages).Assembly);
@@ -51,12 +51,21 @@ namespace Common.BaseApi.Messages {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Cache is empty. Please ensure data is loaded..
+        /// </summary>
+        public static string CacheEmpty {
+            get {
+                return ResourceManager.GetString("CacheEmpty", resourceCulture);
             }
         }
 
@@ -131,7 +140,7 @@ namespace Common.BaseApi.Messages {
                 return ResourceManager.GetString("Status409Conflict", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to An internal error occurred..
         /// </summary>

@@ -8,6 +8,7 @@ namespace Infraestructure.Core.UnitOfWork.Interfaces
         // Security
         IRepository<Role> RoleRepository { get; }
         IRepository<User> UserRepository { get; }
+        IRepository<RolePermission> RolePermissionRepository { get; }
 
         Task<int> Save();
 

@@ -1,4 +1,4 @@
-﻿using Common.BaseApi;
+﻿using Common.BaseApi.Constants;
 using Common.BaseApi.Messages;
 using Domain.Services.Dtos.User;
 using Domain.Services.Services.Interfaces;

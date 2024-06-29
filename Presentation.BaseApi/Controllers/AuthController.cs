@@ -1,5 +1,4 @@
 ﻿using Domain.Services.Dtos.User.Login;
-using Domain.Services.Services;
 using Domain.Services.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.BaseApi.Dtos;
@@ -10,20 +9,20 @@ namespace Presentation.BaseApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [TypeFilter(typeof(CustomExceptionFilter))]
-    public class LoginController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IAuthService _authService;
 
-        public LoginController(IUserService userService)
+        public AuthController(IAuthService authService)
         {
-            _userService = userService;
+            _authService = authService;
         }
 
         [HttpPost]
         [Route("Login")]
         public IActionResult Login(LoginRequestDto login)
         {
-            LoginResponseDto result = _userService.Login(login);
+            LoginResponseDto result = _authService.AuthenticateUser(login);
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = true,

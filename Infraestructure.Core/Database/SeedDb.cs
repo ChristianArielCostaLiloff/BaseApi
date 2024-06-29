@@ -1,7 +1,7 @@
-﻿using Common.BaseApi;
+﻿using Common.BaseApi.Constants;
 using Common.BaseApi.Helpers;
 using Infraestructure.Entity.Models.Security;
-using static Common.BaseApi.Enums;
+using static Common.BaseApi.Constants.Enums;
 
 namespace Infraestructure.Core.Database
 {

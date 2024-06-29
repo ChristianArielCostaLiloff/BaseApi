@@ -29,9 +29,16 @@ namespace Presentation.BaseApi.Filters
             else if (context.Exception is UnauthorizedAccessException)
             {
                 responseException.Status = StatusCodes.Status401Unauthorized;
-                response.Message = StatusCodeMessages.Status404NotFound;
+                response.Message = StatusCodeMessages.Status401Unauthorized;
                 context.ExceptionHandled = true;
                 //Log.Error(StatusCodeMessages.Status404NotFound);
+            }
+            else if (context.Exception is CacheException)
+            {
+                responseException.Status = StatusCodes.Status500InternalServerError;
+                response.Message = context.Exception.Message;
+                context.ExceptionHandled = true;
+                //Add Logs
             }
             else
             {

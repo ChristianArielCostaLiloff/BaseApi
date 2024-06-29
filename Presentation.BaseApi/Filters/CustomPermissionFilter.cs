@@ -1,6 +1,11 @@
-﻿using Common.BaseApi;
+﻿using Common.BaseApi.Constants;
+using Common.BaseApi.Exceptions;
+using Common.BaseApi.Helpers;
+using Common.BaseApi.Messages;
+using Domain.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using static Common.BaseApi.Constants.AuthConstants;
 
 namespace Presentation.BaseApi.Filters
 {
@@ -13,11 +18,13 @@ namespace Presentation.BaseApi.Filters
 
         private class CustomPermissionFilterImplement : IActionFilter
         {
-            private readonly Enums.PermissionId _permission;
+            private readonly Enums.PermissionId _permissionId;
+            private RolePermissionCacheService _rolePermissionCacheService;
 
-            public CustomPermissionFilterImplement(Enums.PermissionId permission)
+            public CustomPermissionFilterImplement(Enums.PermissionId permission, RolePermissionCacheService rolePermissionCacheService)
             {
-                _permission = permission;
+                _permissionId = permission;
+                _rolePermissionCacheService = rolePermissionCacheService;
             }
 
             public void OnActionExecuted(ActionExecutedContext context)
@@ -27,13 +34,19 @@ namespace Presentation.BaseApi.Filters
 
             public void OnActionExecuting(ActionExecutingContext context)
             {
-                //string token = context.HttpContext.Request.Headers["Authorization"];
-                //string idUser = Utils.GetClaimValue(token, TypeClaims.IdUser);
-                //string idRol = Utils.GetClaimValue(token, TypeClaims.IdRol);
-                ////bool result = _permissionServices.ValidatePermissionByUser(_permission, Convert.ToInt32(idUser), 1);
-                //bool result = _permissionServices.ValidatePermissionByUser(_permission, Convert.ToInt32(idUser), Convert.ToInt32(idRol));
-                //if (!result)
-                //    throw new BusinessException(GeneralMessages.WithoutPermission);
+                string? token = context.HttpContext.Request.Headers["Authorization"];
+                if (string.IsNullOrEmpty(token))
+                    throw new UnauthorizedAccessException(AuthMessages.TokenNull);
+
+                string idRole = TokenHelper.GetClaimValue(token, TypeClaims.IdRole);
+
+                var rolePermissions = _rolePermissionCacheService.GetRolePermissionsFromCache();
+
+                bool hasPermission = rolePermissions.Any(rp => rp.IdRole == int.Parse(idRole) && rp.IdPermission == (int)_permissionId);
+
+                if (!hasPermission) 
+                    throw new BusinessException(AuthMessages.WithoutPermission);
+
             }
         }
     }

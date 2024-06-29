@@ -1,6 +1,7 @@
 using Infraestructure.Core.Database;
 using Microsoft.EntityFrameworkCore;
 using IoC.BaseApi.Configurators;
+using Domain.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,13 @@ if (scopeFactory != null)
 }
 #endregion
 
+#region Load Cache
+using (var scope = app.Services.CreateScope())
+{
+    var rolePermissionCacheService = scope.ServiceProvider.GetRequiredService<RolePermissionCacheService>();
+    rolePermissionCacheService.LoadCache();
+}
+#endregion
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
