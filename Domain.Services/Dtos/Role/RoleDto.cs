@@ -1,6 +1,6 @@
-﻿namespace Domain.Services.Dtos.User
+﻿namespace Domain.Services.Dtos.Role
 {
-    public class UserDto
+    public class RoleDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

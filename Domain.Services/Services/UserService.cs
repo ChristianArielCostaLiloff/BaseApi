@@ -30,7 +30,7 @@ namespace Domain.Services.Services
             List<UserDto> userDtoList = userEntityList.Select(user => new UserDto
             {
                 Id = user.Id,
-                Description = user.Name
+                Name = user.Name
             }).ToList();
 
             return userDtoList;
@@ -43,7 +43,7 @@ namespace Domain.Services.Services
             UserDto userDto = new UserDto
             {
                 Id = userEntity.Id,
-                Description = userEntity.Name
+                Name = userEntity.Name
             };
 
             return userDto;

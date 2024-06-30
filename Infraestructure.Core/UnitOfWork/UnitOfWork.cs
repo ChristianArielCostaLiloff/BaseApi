@@ -22,15 +22,17 @@ namespace Infraestructure.Core.UnitOfWork
         #endregion
 
         #region Properties
-        private IRepository<Role>? _roleRepository;
         private IRepository<User>? _userRepository;
+        private IRepository<Role>? _roleRepository;
+        private IRepository<Permission>? _permissionRepository;
         private IRepository<RolePermission>? _rolePermissionRepository;
         #endregion
 
         #region Members
         // Lazy Loading
-        public IRepository<Role> RoleRepository => _roleRepository ??= new Repository<Role>(_context);
         public IRepository<User> UserRepository => _userRepository ??= new Repository<User>(_context);
+        public IRepository<Role> RoleRepository => _roleRepository ??= new Repository<Role>(_context);
+        public IRepository<Permission> PermissionRepository => _permissionRepository ??= new Repository<Permission>(_context);
         public IRepository<RolePermission> RolePermissionRepository => _rolePermissionRepository ??= new Repository<RolePermission>(_context);
         #endregion
 
