@@ -39,7 +39,7 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
     │       └── UserService.cs
     ├── Infraestructure.Core/
     │   ├── Database/
-    │   │   ├── DbContext.cs
+    │   │   ├── ApiDbContext.cs
     │   │   └── SeedDb.cs
     │   ├── Migrations
     │   ├── Repositories/

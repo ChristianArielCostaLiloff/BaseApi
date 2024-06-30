@@ -6,7 +6,7 @@ using Domain.Services.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 #region SQL Server
-builder.Services.AddDbContext<DbContext>(op =>
+builder.Services.AddDbContext<ApiDbContext>(op =>
 {
     op.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStringSQLServer"));
 });

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Core.Database
 {
-    public class DbContext : DbContext
+    public class ApiDbContext : DbContext
     {
-        public DbContext(DbContextOptions<DbContext> dbContextOptions) : base(dbContextOptions) { }
+        public ApiDbContext(DbContextOptions<ApiDbContext> dbContextOptions) : base(dbContextOptions) { }
 
         // Security
         public DbSet<User> Users { get; set; }

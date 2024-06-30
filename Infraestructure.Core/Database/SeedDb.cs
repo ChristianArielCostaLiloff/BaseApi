@@ -8,11 +8,11 @@ namespace Infraestructure.Core.Database
     public class SeedDb
     {
         #region Attributes
-        private readonly DbContext _context;
+        private readonly ApiDbContext _context;
         #endregion
 
         #region Builder
-        public SeedDb(DbContext context)
+        public SeedDb(ApiDbContext context)
         {
             _context = context;
         }

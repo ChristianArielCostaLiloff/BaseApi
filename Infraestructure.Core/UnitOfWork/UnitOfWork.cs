@@ -10,12 +10,12 @@ namespace Infraestructure.Core.UnitOfWork
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         #region Attributes
-        private readonly DbContext _context;
+        private readonly ApiDbContext _context;
         private bool disposed = false;
         #endregion
 
         #region Builder
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(ApiDbContext context)
         {
             _context = context;
         }
