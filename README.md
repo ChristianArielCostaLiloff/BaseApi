@@ -50,7 +50,6 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
     │       ├── Interfaces/
     │       │   └── IUnitOfWork.cs
     │       └── UnitOfWork.cs
-    ├── Infraestructure.Database
     ├── Infraestructure.Entity/
     │   └── Models/
     │       └── Security/
@@ -118,7 +117,6 @@ Follow these steps to set up and run the project:
 - [Microsoft.NET.Test.Sdk](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/) v17.5.0: The .NET Test SDK provides a set of assemblies that are used in conjunction with Test Explorer runners.
 - [xunit](https://www.nuget.org/packages/xunit/) v2.4.2: xUnit.net is a free, open-source, community-focused unit testing tool for .NET.
 - [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/) v2.4.5: xUnit.net runner for Visual Studio and Visual Studio Code.
-
 
 ## Testing
 

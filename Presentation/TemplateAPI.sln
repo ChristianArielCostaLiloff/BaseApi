@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "..\Test\Test.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoC", "..\IoC\IoC.csproj", "{95113B88-1FE4-483B-847C-31DD913C340D}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Infraestructure.Database", "..\Infraestructure.Database\Infraestructure.Database.sqlproj", "{D550C5E7-9F4D-466D-9D4D-13019173EF81}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,12 +51,6 @@ Global
 		{95113B88-1FE4-483B-847C-31DD913C340D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95113B88-1FE4-483B-847C-31DD913C340D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95113B88-1FE4-483B-847C-31DD913C340D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D550C5E7-9F4D-466D-9D4D-13019173EF81}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
