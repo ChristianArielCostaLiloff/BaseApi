@@ -80,7 +80,15 @@ This project serves as a template for developing RESTful APIs using .NET Core 6.
 
 Follow these steps to set up and run the project:
 
-1. [Detailed instructions, e.g., installation commands, database configuration, etc.]
+1. **Installation and Database Configuration:**
+   - Open `install-packages.bat` located in the `SetUp` folder and run it to install project dependencies.
+
+2. **Database Migration:**
+   - Open Package Manager Console in Visual Studio.
+   - Set the default project to `Infraestructure.Core` using the drop-down menu in Package Manager Console.
+   - Execute the command `update-database` to apply migrations and update the database schema.
+
+These steps will ensure that your project dependencies are installed correctly and that database migrations are applied using Entity Framework Core.
 
 ## Dependencies
 
