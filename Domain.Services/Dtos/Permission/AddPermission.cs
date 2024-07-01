@@ -1,16 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Services.Dtos.User
+namespace Domain.Services.Dtos.Permission
 {
-    public class AddUserDto
+    public class AddPermission
     {
+        [Required(ErrorMessage = "Name is required.")]
+        [MaxLength(50)]
+        [Display(Name = "Name")]
+        public string Name { get; set; } = null!;
+
         [Required(ErrorMessage = "Description is required.")]
         [MaxLength(50)]
         [Display(Name = "Description")]
         public string Description { get; set; } = null!;
-
-        [Required(ErrorMessage = "IdRole is required.")]
-        [Display(Name = "IdRole")]
-        public int IdRole { get; set; }
     }
 }
