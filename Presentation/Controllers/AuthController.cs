@@ -20,9 +20,9 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public IActionResult Login(LoginRequestDto login)
+        public IActionResult Login(AuthRequestDto login)
         {
-            LoginResponseDto result = _authService.AuthenticateUser(login);
+            AuthResponseDto result = _authService.AuthenticateUser(login);
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = true,

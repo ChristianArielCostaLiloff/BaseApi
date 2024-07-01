@@ -5,7 +5,7 @@ namespace Domain.Services.Services.Interfaces
 {
     public interface IAuthService
     {
-        public LoginResponseDto AuthenticateUser(LoginRequestDto login);
+        public AuthResponseDto AuthenticateUser(AuthRequestDto login);
     }
 
 }

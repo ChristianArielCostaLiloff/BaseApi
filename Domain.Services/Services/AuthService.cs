@@ -25,14 +25,14 @@ namespace Domain.Services.Services
             _configuration = configuration;
         }
 
-        public LoginResponseDto AuthenticateUser(LoginRequestDto login)
+        public AuthResponseDto AuthenticateUser(AuthRequestDto login)
         {
             User? user = _unitOfWork.UserRepository.FirstOrDefault(x => x.UserName == login.UserName);
 
             if (user == null || !PasswordHelper.VerifyPassword(login.Password, user.Password))
                 throw new BusinessException(StatusCodeMessages.Status401Unauthorized);
 
-            LoginResponseDto loginResponse = new LoginResponseDto { Token = GenerateToken(user) };
+            AuthResponseDto loginResponse = new AuthResponseDto { Token = GenerateToken(user) };
 
             return loginResponse;
         }

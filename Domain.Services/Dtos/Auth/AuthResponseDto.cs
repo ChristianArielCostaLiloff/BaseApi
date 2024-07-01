@@ -1,6 +1,6 @@
 ﻿namespace Domain.Services.Dtos.Login
 {
-    public class LoginResponseDto
+    public class AuthResponseDto
     {
         public string Token { get; set; } = null!;
     }

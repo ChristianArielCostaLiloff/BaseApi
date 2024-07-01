@@ -2,7 +2,7 @@
 
 namespace Domain.Services.Dtos.Login
 {
-    public class LoginRequestDto
+    public class AuthRequestDto
     {
         [Required(ErrorMessage = "User name required.")]
         public string UserName { get; set; } = null!;
