@@ -27,14 +27,10 @@ namespace Presentation.Filters
                 _rolePermissionCacheService = rolePermissionCacheService;
             }
 
-            public void OnActionExecuted(ActionExecutedContext context)
-            {
-
-            }
-
             public void OnActionExecuting(ActionExecutingContext context)
             {
                 string? token = context.HttpContext.Request.Headers["Authorization"];
+
                 if (string.IsNullOrEmpty(token))
                     throw new UnauthorizedAccessException(AuthMessages.TokenNull);
 
@@ -46,6 +42,11 @@ namespace Presentation.Filters
 
                 if (!hasPermission) 
                     throw new BusinessException(AuthMessages.WithoutPermission);
+
+            }
+
+            public void OnActionExecuted(ActionExecutedContext context)
+            {
 
             }
         }

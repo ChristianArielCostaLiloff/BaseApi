@@ -22,16 +22,9 @@ namespace IoC.Configurators
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();
 
-            // Common
-            services.AddScoped<RolePermissionCacheService>();
-
             // Cache
             services.AddMemoryCache();
-            // Initialize cache during service registration
-            //var serviceProvider = services.BuildServiceProvider();
-            //var rolePermissionCacheService = serviceProvider.GetRequiredService<RolePermissionCacheService>();
-            //rolePermissionCacheService.LoadCache();
-
+            services.AddScoped<IRolePermissionCacheService, RolePermissionCacheService>();
         }
     }
 }

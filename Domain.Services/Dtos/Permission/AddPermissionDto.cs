@@ -2,12 +2,8 @@
 
 namespace Domain.Services.Dtos.Permission
 {
-    public class UpdatePermission
+    public class AddPermissionDto
     {
-        [Required(ErrorMessage = "Id is required.")]
-        [Display(Name = "Id")]
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Name is required.")]
         [MaxLength(50)]
         [Display(Name = "Name")]

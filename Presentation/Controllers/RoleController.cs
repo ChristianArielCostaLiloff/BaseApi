@@ -1,6 +1,6 @@
 ﻿using Common.Constants;
 using Common.Messages;
-using Domain.Services.Dtos.User;
+using Domain.Services.Dtos.Role;
 using Domain.Services.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Dtos;
@@ -11,31 +11,31 @@ namespace Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [TypeFilter(typeof(CustomExceptionFilter))]
-    public class UserController : ControllerBase
+    public class RoleController : ControllerBase
     {
         #region Attributes
-        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
         #endregion
 
         #region Builder
-        public UserController(IUserService userService)
+        public RoleController(IRoleService roleService)
         {
-            _userService = userService;
+            _roleService = roleService;
         }
         #endregion
 
         #region Services
         [HttpGet]
         [Route("GetAll")]
-        [CustomPermissionFilter(Enums.PermissionId.UserRead)]
+        [CustomPermissionFilter(Enums.PermissionId.RoleRead)]
         public IActionResult GetAll()
         {
-            List<UserDto> userDtos = _userService.GetAll();
+            List<RoleDto> roleDtos = _roleService.GetAll();
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = true,
                 Message = string.Empty,
-                Result = userDtos,
+                Result = roleDtos,
             };
 
             return Ok(response);
@@ -43,15 +43,15 @@ namespace Presentation.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
-        [CustomPermissionFilter(Enums.PermissionId.UserRead)]
+        [CustomPermissionFilter(Enums.PermissionId.RoleRead)]
         public IActionResult GetById(int id)
         {
-            UserDto userDto = _userService.GetById(id);
+            RoleDto roleDto = _roleService.GetById(id);
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = true,
                 Message = string.Empty,
-                Result = userDto,
+                Result = roleDto,
             };
 
             return Ok(response);
@@ -59,10 +59,10 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [Route("Insert")]
-        [CustomPermissionFilter(Enums.PermissionId.UserCreate)]
-        public async Task<IActionResult> Insert(AddUserDto user)
+        [CustomPermissionFilter(Enums.PermissionId.RoleCreate)]
+        public async Task<IActionResult> Insert(AddRoleDto role)
         {
-            bool result = await _userService.Insert(user);
+            bool result = await _roleService.Insert(role);
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = result,
@@ -75,10 +75,10 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [Route("Update")]
-        [CustomPermissionFilter(Enums.PermissionId.UserUpdate)]
-        public async Task<IActionResult> Update(UpdateUserDto user)
+        [CustomPermissionFilter(Enums.PermissionId.RoleUpdate)]
+        public async Task<IActionResult> Update(UpdateRoleDto role)
         {
-            bool result = await _userService.Update(user);
+            bool result = await _roleService.Update(role);
             ResponseDto response = new ResponseDto()
             {
                 IsSuccess = result,
@@ -91,10 +91,10 @@ namespace Presentation.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
-        [CustomPermissionFilter(Enums.PermissionId.UserDelete)]
+        [CustomPermissionFilter(Enums.PermissionId.RoleDelete)]
         public async Task<IActionResult> Delete(int id)
         {
-            bool isDeleted = await _userService.Delete(id);
+            bool isDeleted = await _roleService.Delete(id);
 
             ResponseDto response = new ResponseDto()
             {
@@ -106,6 +106,5 @@ namespace Presentation.Controllers
             return Ok(response);
         }
         #endregion
-
     }
 }

@@ -56,6 +56,7 @@ namespace Domain.Services.Services
                 Name = user.Description,
                 IdRole = user.IdRole,
             };
+
             _unitOfWork.UserRepository.Insert(userEntity);
 
             return await _unitOfWork.Save() > 0;

@@ -16,6 +16,12 @@
             UserRead = 2,
             UserUpdate = 3,
             UserDelete = 4,
+
+            // Role
+            RoleCreate = 10,
+            RoleRead = 11,
+            RoleUpdate = 12,
+            RoleDelete = 13,
         }
     }
 }
